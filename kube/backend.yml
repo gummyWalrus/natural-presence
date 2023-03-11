@@ -1,0 +1,101 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: np-back-ingress
+spec:
+  rules:
+    - host: backoffice.caucheteux.cloud
+      http:
+        paths:
+          - path: "/"
+            pathType: Prefix
+            backend:
+              service:
+                name: np-back
+                port:
+                  name: app
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: np-back
+
+spec:
+  selector:
+    app: np-back
+  ports:
+    - name: app
+      port: 8055
+      targetPort: app
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: np-back
+  labels:
+    app: np-back
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: np-back
+  template:
+    metadata:
+      labels:
+        app: np-back
+    spec:
+      containers:
+        - name: np-back
+          image: directus/directus:latest
+          imagePullPolicy: Always
+
+          ports:
+            - name: app
+              containerPort: 8055
+
+          # TODO: Add env variables
+          env:
+            - name: KEY
+              value: "255d861b-5ea1-5996-9aa3-922530ec40b1"
+            - name: SECRET
+              value: "6116487b-cda1-52c2-b5b5-c8022c45e263"
+            - name: PUBLIC_URL
+              value: "http://backoffice.caucheteux.cloud"
+            - name: DB_CLIENT
+              value: "pg"
+            - name: DB_HOST
+              value: "np-db"
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_DATABASE
+              value: "natural-presence"
+            - name: DB_USER
+              value: "natural-presence"
+            - name: DB_PASSWORD
+              value: "passwd"
+            - name: CACHE_ENABLED
+              value: "false"
+            - name: "ADMIN_EMAIL"
+              value: "loys@loys.me"
+            - name: "ADMIN_PASSWORD"
+              value: "passwd"
+            - name: "CORS_ENABLED"
+              value: "true"
+            - name: "CORS_ORIGIN"
+              value: "true"
+
+          volumeMounts:
+            - name: uploads
+              mountPath: /directus/uploads
+            - name: database
+              mountPath: /directus/database
+
+      # TODO: Add volumes
+      volumes:
+        - name: uploads
+          emptyDir: {}
+        - name: database
+          emptyDir: {}

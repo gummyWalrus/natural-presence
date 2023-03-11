@@ -1,0 +1,63 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: np-cv-ingress
+spec:
+  rules:
+    - host: "cv.caucheteux.cloud"
+      http:
+        paths:
+          - path: "/"
+            pathType: Prefix
+            backend:
+              service:
+                name: np-cv
+                port:
+                  name: app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: np-cv
+
+spec:
+  selector:
+    app: np-cv
+  ports:
+    - name: app
+      port: 80
+      targetPort: app
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: np-cv
+  labels:
+    app: np-cv
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: np-cv
+  template:
+    metadata:
+      labels:
+        app: np-cv
+    spec:
+      containers:
+        - name: np-cv
+          image: lanico/natural-presence-cv:latest
+          imagePullPolicy: Always
+          ports:
+            - name: app
+              containerPort: 80
+
+          env:
+            - name: PORT
+              value: "80"
+            - name: VITE_API_URL
+              value: "http://np-back:8055"
+            - name: ORIGIN
+              value: "http://cv.caucheteux.cloud"

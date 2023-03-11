@@ -1,0 +1,52 @@
+jenkins:
+  systemMessage: "Wh4N05 🐋"
+
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: admin
+          name: Admin
+          password: passwd # todo Variable
+
+  remotingSecurity:
+    enabled: true
+
+  authorizationStrategy:
+    roleBased:
+      roles:
+        global:
+          - name: "admin"
+            description: "Marvin master"
+            permissions:
+              - "Overall/Administer"
+            assignments:
+              - "admin"
+tool:
+  git:
+    installations:
+      - name: git
+        home: /usr/bin/git
+
+# todo : maven ?
+# jobs:
+#   - file: /var/jenkins_home/config/job.groovy
+
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - usernamePassword:
+              scope: GLOBAL
+              id: docker_hub
+              username: lanico
+              password: Alta*r667!!
+              description: "Docker Hub credentials."
+security:
+  globalJobDslSecurityConfiguration:
+    useScriptSecurity: false
+
+unclassified:
+  location:
+    adminAddress: "acid@Wh4N05.biz"
+    url: "http://localhost:8080/"

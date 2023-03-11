@@ -1,0 +1,63 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: np-front-ingress
+spec:
+  rules:
+    - host: "caucheteux.cloud"
+      http:
+        paths:
+          - path: "/"
+            pathType: Prefix
+            backend:
+              service:
+                name: np-front
+                port:
+                  name: app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: np-front
+
+spec:
+  selector:
+    app: np-front
+  ports:
+    - name: app
+      port: 80
+      targetPort: app
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: np-front
+  labels:
+    app: np-front
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: np-front
+  template:
+    metadata:
+      labels:
+        app: np-front
+    spec:
+      containers:
+        - name: np-front
+          image: lanico/natural-presence-frontend:latest
+          imagePullPolicy: Always
+          ports:
+            - name: app
+              containerPort: 80
+
+          env:
+            - name: PORT
+              value: "80"
+            - name: VITE_API_URL
+              value: "http://np-back:8055"
+            - name: ORIGIN
+              value: "http://caucheteux.cloud"

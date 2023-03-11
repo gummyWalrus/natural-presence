@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.round-image {
+    border-radius: 50%;
+    overflow: hidden;
+    height: 4rem;
+    width: 4rem;
+}
+
+.round-image.large {
+    height: 5rem !important;
+    width: 5rem !important;
+}
+
+/* @media screen and (min-width: theme(screens.sm)) {
+    .round-image {
+        height: 64px;
+        width: 64px;
+    }
+} */
+
+
+html {
+    font-family: font;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    background: #374151;
+    /* background: linear-gradient(180deg, #374151 45%, #4ADE80 100%);  */
+  }

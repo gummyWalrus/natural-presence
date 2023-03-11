@@ -1,0 +1,12 @@
+cloudbees-folder:latest
+configuration-as-code:latest
+role-strategy:latest
+job-dsl:latest
+workflow-job:latest
+workflow-cps:latest
+git:latest
+github:latest
+pipeline-model-definition:latest
+ws-cleanup:latest
+google-kubernetes-engine:latest
+content-replace:latest

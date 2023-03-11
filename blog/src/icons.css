@@ -1,0 +1,54 @@
+i.duo.calendar {
+    mask: url("/icons/svg/calendar.svg");
+}
+
+i.duo.calendar_big {
+    mask: url("/icons/svg/calendar_big.svg");
+}
+
+i.duo.rocket {
+    mask: url("/icons/svg/rocket.svg");
+}
+
+i.duo.graduation_cap {
+    mask: url("/icons/svg/graduation_cap.svg");
+}
+
+i.duo.leave {
+    mask: url("/icons/svg/leave.svg");
+}
+
+i.duo {
+    display: inline-block;
+    mask-size: contain;
+}
+
+i.duo.small {
+    min-width: 0.5rem;
+    min-height: 0.5rem;
+}
+
+i.duo.medium {
+    min-width: 1rem;
+    min-height: 1rem;
+}
+
+i.duo.large {
+    min-width: 2rem;
+    min-height: 2rem;
+}
+
+i.duo.xlarge {
+    min-width: 3rem;
+    min-height: 3rem;
+}
+
+i.duo.xxlarge {
+    min-width: 4rem;
+    min-height: 4rem;
+}
+
+i.duo.xxxlarge {
+    min-width: 5rem;
+    min-height: 5rem;
+}

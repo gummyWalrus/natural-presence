@@ -1,0 +1,63 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: np-blog-ingress
+spec:
+  rules:
+    - host: "blog.caucheteux.cloud"
+      http:
+        paths:
+          - path: "/"
+            pathType: Prefix
+            backend:
+              service:
+                name: np-blog
+                port:
+                  name: app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: np-blog
+
+spec:
+  selector:
+    app: np-blog
+  ports:
+    - name: app
+      port: 80
+      targetPort: app
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: np-blog
+  labels:
+    app: np-blog
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: np-blog
+  template:
+    metadata:
+      labels:
+        app: np-blog
+    spec:
+      containers:
+        - name: np-blog
+          image: lanico/natural-presence-blog:latest
+          imagePullPolicy: Always
+          ports:
+            - name: app
+              containerPort: 80
+
+          env:
+            - name: PORT
+              value: "80"
+            - name: VITE_API_URL
+              value: "http://np-back:8055"
+            - name: ORIGIN
+              value: "http://blog.caucheteux.cloud"

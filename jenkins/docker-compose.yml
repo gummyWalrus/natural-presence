@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+    jenkins:
+      privileged: true
+      user: root
+      # image: lanico/whanos-jenkins:latest
+      build:
+
+        context: .
+        dockerfile: ./Dockerfile.jenkins
+      ports:
+        - 8080:8080
+        - 50000:50000
+      volumes:
+        - ./home:/var/jenkins_home
+        - ./config:/var/jenkins_home/config
+        - /var/run/docker.sock:/var/run/docker.sock
+      environment:
+      - CASC_JENKINS_CONFIG=/var/jenkins_home/config/whanos.yml
+      - JAVA_OPTS -Djenkins.install.runSetupWizard=false
