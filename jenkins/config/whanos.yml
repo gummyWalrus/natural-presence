@@ -1,5 +1,5 @@
 jenkins:
-  systemMessage: "Wh4N05 🐋"
+  systemMessage: "Natural Presence - One click to go"
 
   securityRealm:
     local:
@@ -7,7 +7,7 @@ jenkins:
       users:
         - id: admin
           name: Admin
-          password: passwd # todo Variable
+          password: passwd
 
   remotingSecurity:
     enabled: true
@@ -28,20 +28,19 @@ tool:
       - name: git
         home: /usr/bin/git
 
-# todo : maven ?
-# jobs:
-#   - file: /var/jenkins_home/config/job.groovy
+jobs:
+  - file: /var/jenkins_home/config/job.groovy
 
 credentials:
   system:
     domainCredentials:
       - credentials:
-          - usernamePassword:
+          - string:
               scope: GLOBAL
-              id: docker_hub
-              username: lanico
-              password: Alta*r667!!
-              description: "Docker Hub credentials."
+              id: docker_hub_token
+              secret: Alta*r667!!
+              description: "Docker Hub password (so secure)."
+
 security:
   globalJobDslSecurityConfiguration:
     useScriptSecurity: false
