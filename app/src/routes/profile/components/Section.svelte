@@ -10,7 +10,7 @@
     {#each section.items as item}
         <div class="flex flex-row mt-4">
             <div class="image">
-                <img src={`${import.meta.env.VITE_API_URL}/assets/${item.image}`} alt="logo" />
+                <img src={`${import.meta.env.VITE_API_URL_CLIENT}/assets/${item.image}`} alt="logo" />
             </div>
             <div class="flex flex-col ml-5 mt-2">
                 <div class="text-lg font-bold">{item.title}</div>

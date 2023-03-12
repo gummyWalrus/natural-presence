@@ -34,7 +34,7 @@
     <div class="menu-item flex flex-nowrap">
         <div class="menu-link">
           <div class="round-image">
-            <img src={`${import.meta.env.VITE_API_URL}/assets/${profile.logo}`} alt="logo" />
+            <img src={`${import.meta.env.VITE_API_URL_CLIENT}/assets/${profile.logo}`} alt="logo" />
           </div>
         </div>
       <div class="text-xl whitespace-nowrap mt-2 ml-4">{profile.name}</div>

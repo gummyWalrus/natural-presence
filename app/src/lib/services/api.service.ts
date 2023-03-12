@@ -9,7 +9,13 @@ import type IProject from '$lib/types/project';
 import { PeriodType, type ILifePeriod } from '$lib/types/formation';
 import { newLifePeriod } from '$lib/types/formation';
 
+
 var URL = import.meta.env.VITE_API_URL;
+
+if (!process) {
+	URL = import.meta.env.VITE_API_URL_CLIENT;
+}
+
 
 let langCode: string;
 

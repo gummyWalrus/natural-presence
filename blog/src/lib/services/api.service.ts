@@ -8,7 +8,13 @@ import type ICategory from '$lib/types/category';
 import { newArticle } from '$lib/types/article';
 import type IComment from '$lib/types/comment';
 
+
 var URL = import.meta.env.VITE_API_URL;
+
+if (!process) {
+	URL = import.meta.env.VITE_API_URL_CLIENT;
+}
+
 
 let langCode: string;
 

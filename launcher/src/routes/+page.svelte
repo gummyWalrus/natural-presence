@@ -5,7 +5,7 @@
   function triggerJenkins() {
     loading = true;
     fetch(
-      "http://localhost:8080/job/Deploy%20Natural%20Presence/buildWithParameters?DOMAIN=" +
+      "http://localhost:8080/job/DeployGKE/buildWithParameters?DOMAIN=" +
         domain,
       {
         method: "POST",

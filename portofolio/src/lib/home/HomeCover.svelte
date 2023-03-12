@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Description from '$lib/home/HomeDescription.svelte';
 	import apiService from '$lib/services/api.service';
 	import HomeName from './HomeName.svelte';
 	import HomeLinks from './HomeLinks.svelte';

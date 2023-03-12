@@ -8,7 +8,7 @@
 	<div class="navbar-brand">
 		<a href="/" class="flex flex-row">
 			<div class="round-image">
-				<img src={`${import.meta.env.VITE_API_URL}/assets/${profile.logo}`} alt="logo" />
+				<img src={`${import.meta.env.VITE_API_URL_CLIENT}/assets/${profile.logo}`} alt="logo" />
 			</div>
 			<div class="text-xl mt-4 ml-4">{profile.name}</div>
 		</a>

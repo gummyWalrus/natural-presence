@@ -20,7 +20,7 @@
                                     <a href={language.languages_id.link}>
                                         <img
                                             class="badge-img ml-2"
-                                            src={import.meta.env.VITE_API_URL + '/assets/' + language.languages_id.logo}
+                                            src={import.meta.env.VITE_API_URL_CLIENT + '/assets/' + language.languages_id.logo}
                                             alt={language.languages_id.name}
                                         />
                                     </a>

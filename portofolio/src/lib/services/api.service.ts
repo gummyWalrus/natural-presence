@@ -11,6 +11,10 @@ import { newLifePeriod } from '$lib/types/formation';
 
 var URL = import.meta.env.VITE_API_URL;
 
+if (!process) {
+	URL = import.meta.env.VITE_API_URL_CLIENT;
+}
+
 let langCode: string;
 
 lang.subscribe((value) => {

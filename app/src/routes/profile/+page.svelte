@@ -17,7 +17,7 @@
 <div class="grid md:grid-cols-2 gap-4 mx-3 pt-10">
     <div class="flex profile py-4 bg-metal flex-col items-center px-5">
       <div class="img-thumbnail relative">
-        <img src={`${import.meta.env.VITE_API_URL}/assets/${profile.logo}`} alt="logo" />
+        <img src={`${import.meta.env.VITE_API_URL_CLIENT}/assets/${profile.logo}`} alt="logo" />
       </div>
       <div>
         <div class="text-2xl">
