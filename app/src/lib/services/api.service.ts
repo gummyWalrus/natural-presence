@@ -13,8 +13,13 @@ import { newLifePeriod } from '$lib/types/formation';
 var URL = import.meta.env.VITE_API_URL;
 
 if (!process) {
+	console.log('process undefined')
 	URL = import.meta.env.VITE_API_URL_CLIENT;
+} else {
+	console.log('process defined process.browser', process.browser);
+	
 }
+
 
 
 let langCode: string;
