@@ -1,16 +1,16 @@
 <div class="navbar">
     <div class="navbar-item hover:text-green-400">
-        <a href="{import.meta.env.HOME_URL}">
+        <a href="{import.meta.env.VITE_HOME_URL}">
             Home
         </a>
     </div>
     <div class="navbar-item hover:text-green-400">
-        <a href="{import.meta.env.CV_URL}">
+        <a href="{import.meta.env.VITE_CV_URL}">
             CV
         </a>
     </div>
     <div class="navbar-item hover:text-green-400">
-        <a href="{import.meta.env.BLOG_URL}">
+        <a href="{import.meta.env.VITE_BLOG_URL}">
             Blog
         </a>
     </div>
