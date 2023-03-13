@@ -1,6 +1,7 @@
 <script lang="ts">
 import "../app.css";
   import "../icons.css";
+  import Sidebar from "../lib/Sidebar.svelte";
   
 </script>
 
@@ -10,6 +11,7 @@ import "../app.css";
 </svelte:head>
 
 <div class="app">
+  <Sidebar />
 	<main>
     <div >
       <slot />

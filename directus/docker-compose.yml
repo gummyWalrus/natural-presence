@@ -1,27 +1,12 @@
 version: '3'
 services:
 
-  # node-web:
-  #   build: site
-  #   volumes:
-  #       - "./site/sources:/sources"
-  #   ports: 
-  #       - 3000:3000
-  #   networks:
-  #     - traefik
-  #   labels:
-  #     - traefik.http.routers.cv.rule=Host(`cv.loys.me`)
-  #     - traefik.http.routers.cv.tls=true
-  #     - traefik.http.routers.cv.tls.certresolver=lets-encrypt
-  #     - traefik.port=3000
-
-
   database:
     container_name: database
-    image: lanico/natural-presence-db:latest
+    image: postgis/postgis:13-master
     volumes:
       - ./data/database:/var/lib/postgresql/data
-      - ./cv.sql:/home/postgresql/cv.sql
+      # - "./cv.sql:/docker-entrypoint-initdb.d/cv.sql"
     networks:
       - directus
     environment:
@@ -65,9 +50,7 @@ services:
 
       CORS_ENABLED: 'true'
       CORS_ORIGIN: 'true'
-      # Make sure to set this in production
-      # (see https://docs.directus.io/self-hosted/config-options#general)
-      # PUBLIC_URL: 'https://directus.example.com'
+      # PUBLIC_URL: 'https://ddoirectus.example.com'
 
 
 volumes:

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import MobileMenu from '$lib/mobile/MobileMenu.svelte';
+	import Sidebar from '$lib/mobile/Sidebar.svelte';
 	import "../app.css";
   import "../icons.css";
 
@@ -14,6 +15,7 @@
 </svelte:head>
 
 <div class="app">
+  <Sidebar />
 	<MobileMenu profile={data.profile} />
 	<main>
 		<slot />

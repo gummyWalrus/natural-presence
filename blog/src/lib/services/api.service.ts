@@ -11,7 +11,11 @@ import type IComment from '$lib/types/comment';
 
 var URL = import.meta.env.VITE_API_URL;
 
-if (!process) {
+try {
+	if (!process) {
+		URL = import.meta.env.VITE_API_URL_CLIENT;
+	}
+} catch (e) {
 	URL = import.meta.env.VITE_API_URL_CLIENT;
 }
 

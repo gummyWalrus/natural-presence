@@ -37,25 +37,25 @@
             <img src={`${import.meta.env.VITE_API_URL_CLIENT}/assets/${profile.logo}`} alt="logo" />
           </div>
         </div>
-      <div class="text-xl whitespace-nowrap mt-2 ml-4">{profile.name}</div>
+      <div class="text-xl whitespace-nowrap mt-2 ml-4"><a href="/">{profile.name}</a></div>
     </div>
     <div class="menu-item mt-5" on:click={toProfile} on:keypress={none}>
       <div class="menu-link text-white text-4xl">
         <i class="duo leave xlarge bg-slate-50"></i>
       </div>
-      <div class="text-xl whitespace-nowrap mt-2 ml-4">Profile</div>
+      <div class="text-xl whitespace-nowrap mt-2 ml-4"><a href="/profile">Profile</a></div>
     </div>
     <div class="menu-item mt-5" on:click={toFormation} on:keypress={none}>
       <div class="menu-link text-white text-4xl">
         <i class="duo graduation_cap xlarge bg-slate-50"></i>
       </div>
-      <div class="text-xl whitespace-nowrap mt-2 ml-4">Formation</div>
+      <div class="text-xl whitespace-nowrap mt-2 ml-4"><a href="/formation">Formation</a></div>
     </div>
     <div class="menu-item mt-5" on:click={toExperience} on:keypress={none}>
       <div class="menu-link text-white text-4xl">
         <i class="duo rocket xlarge bg-slate-50"></i>
       </div>
-      <div class="text-xl whitespace-nowrap mt-2 ml-4">Experience</div>
+      <div class="text-xl whitespace-nowrap mt-2 ml-4"><a href="/experience">Experience</a></div>
     </div>
     <div class="menu-item">
       <div class="menu-link items-center ml-2">
@@ -75,6 +75,10 @@
   display: flex;
 }
 
+.menu-item > div > a {
+  font-size: 1rem;
+}
+
 .menu-link {
   width: 48px;
   height: 48px;
@@ -92,9 +96,11 @@
     position: fixed;
     bottom: 0;
     width: 100%;
+    
     /* background: linear-gradient(180deg, #374151 45%, #4ADE80 100%);  */
 
   }
+
 
 .menu-item:last-child {
   position: absolute;
@@ -108,6 +114,7 @@
     padding-top: 1rem;
     z-index: 1;
     width: 64px;
+    top: 64px;
     overflow-x: hidden;
     color: black;
     background-color: rgb(0, 0, 0, 0.97);

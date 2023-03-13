@@ -1,7 +1,7 @@
 <script lang="ts">
 	import "../app.css";
   import "../icons.css";
-
+  import Sidebar from "../lib/Sidebar.svelte";
 	export let data : any;
 
   
@@ -13,6 +13,7 @@
 </svelte:head>
 
 <div class="app">
+  <Sidebar />
 	<main>
 		<slot />
 	</main>
